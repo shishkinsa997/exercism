@@ -1,0 +1,28 @@
+//
+// This is only a SKELETON file for the 'Transpose' exercise. It's been provided as a
+// convenience to get you started writing code faster.
+//
+
+export const transpose = (matrix) => {
+  let transposed = [];
+
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      let rowLength = 0;
+
+      let element = matrix[i][j];
+
+      if (transposed[j]) {
+        rowLength = transposed[j].length;
+      }
+
+      if (i > rowLength) {
+        element = element.padStart(i - rowLength + 1, " ");
+      }
+
+      transposed[j] ? (transposed[j] += element) : (transposed[j] = element);
+    }
+  }
+
+  return transposed;
+};
